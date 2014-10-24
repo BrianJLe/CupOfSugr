@@ -1,0 +1,22 @@
+  <div class="large-8 columns large-centered">
+<%= form_for(@restaurant, multipart: true) do |f| %>
+
+  <%= f.label :name, "Name" %>
+  <%= f.text_field :name, :placeholder => "Restaurant name", :"required" => "" %>
+  <br />
+
+  <%= f.label :description, "Description" %>
+  <%= f.text_area :description, :placeholder => "Short description" %>
+  <br />
+
+  <%= f.label :phone, "Phone Number:" %>
+  <%= f.text_field :phone, :placeholder => "Phone number" %>
+  <br />
+
+  <%= f.label :address, "Address" %>
+  <%= f.text_area :address, :placeholder => "Street address", :'required' => "" %>
+  <br />
+
+  <%= f.submit class: 'button' %>
+<% end %>
+</div>

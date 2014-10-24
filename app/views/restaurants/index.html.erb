@@ -1,0 +1,13 @@
+<h1> Reservester </h1>  
+
+  <div class="row">
+  	<div class="large-8 columns">
+  		<% @restaurants.each do |res| %>
+  		<h5>
+  			<%= res.name %></h5>
+  			<br>
+  			<% end %>
+  		</div>
+  	</div>
+
+  	<%= link_to 'Add new restaurant', new_restaurant_path %>
