@@ -4,6 +4,7 @@
   gem 'rails', '4.0.2'
   gem 'pg', '~> 0.17.1'
   gem 'thin', '~> 1.6.1'
+  gem 'geocoder'
 
   # assets and views
   gem 'sass-rails', '~> 4.0.0'

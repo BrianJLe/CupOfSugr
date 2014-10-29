@@ -25,6 +25,8 @@ module Reservester
       generate.assets false
       generate.view_specs false
     end
+
+    config.assets.paths << "#{Rails}/app/assets/fonts"
     
   end
 end

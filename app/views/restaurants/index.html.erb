@@ -1,15 +1,18 @@
-<h1> Reservester </h1>  
+    <div class="container">
 
-  <div class="row">
-  	<div class="large-8 columns">
-      <% if !@restaurants.nil? %>
-  		<% @restaurants.each do |res| %>
-  		<h5>
-  			<%= res.name %></h5>
-  			<br>
-  			<% end %>
-        <% end %>
-  		</div>
-  	</div>
-
-  	<%= link_to 'Add new restaurant', new_restaurant_path %>
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h1><b>Reserve</b>ster</h1>
+          
+          <ul class="list-unstyled">
+            <% if !@restaurants.nil? %>
+            <% @restaurants.each do |res| %>
+            <li><%= link_to res.name, res %></li>
+            <% end %>
+            <% end %>
+          </ul>
+                <h3><%= link_to 'Add new restaurant', new_restaurant_path %></h3>
+        </div>
+      </div>
+      <!-- /.row -->
+    </div>
