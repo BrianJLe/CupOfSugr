@@ -1,6 +1,11 @@
 class RestaurantsController < ApplicationController
+
+before_action :find_restaurant, :only => [:show, :edit, :update, :destroy]  
+
 def show
-  @restaurant = Restaurant.find_by_id params[:id]
+  @current_reservations = Reservation.find_all_by_restaurant_id(@restaurant.id)
+  cookies[:name] = @restaurant.name
+  Rails.logger.info("RESL: #{@current_reservations.inspect}")
   if @restaurant
     render :show
   else
@@ -20,6 +25,7 @@ end
   def create
     Rails.logger.info("Test:#{params.inspect}")
     @restaurant = Restaurant.new(restaurant_params)
+    @restaurant.user_id = current_user.id
 
     if @restaurant.save
       flash[:success] = "#{@restaurant.name} created"
@@ -31,7 +37,6 @@ end
   end
 
   def edit
-        @restaurant = Restaurant.find_by_id params[:id]
     if @restaurant
       render :edit
     else
@@ -40,7 +45,6 @@ end
   end
 
   def update
-        @restaurant = Restaurant.find_by_id params[:id]
     if @restaurant
       @restaurant.update_attributes(name: params[:restaurant][:name])
       flash[:success] = "Name Updated!"
@@ -57,9 +61,13 @@ end
     redirect_to root_path
   end
 
-    private
-
+  private
   def restaurant_params
     params.require(:restaurant).permit(:name, :address, :phone, :description, :city, :state)
+  end
+
+  protected    
+  def find_restaurant
+    @restaurant = Restaurant.find_by_id params[:id]
   end
 end

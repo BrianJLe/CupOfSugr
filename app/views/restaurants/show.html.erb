@@ -5,6 +5,7 @@
     class: "tab-content",
      id: "map" %><br/>
 
+     <h1><%= link_to 'Reserve', new_restaurant_reservation_path(@restaurant.id) %></h1>
      <h3>Name:</h3> <%= @restaurant.name %> <br>
      <h3>Description:</h3> <%= @restaurant.description %> <br>
      <h3>Address:</h3> <%= @restaurant.address %><br>
@@ -17,4 +18,18 @@
        <%= link_to 'Delete', @restaurant , method: :delete %><br>
      </h2>
    </div>
+
+   <%= render partial: 'reservations/form', :locals => { reservation: Reservation.new(restaurant_id: @restaurant.id) } %>
+   <% if current_user.id == @restaurant.user_id %>
+   <% @current_reservations.each do |reserve| %>
+   <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+     <h2><%= reserve.email %></h2>
+     <%= link_to 'Destroy', { :controller => "reservations", :action => 'destroy', :id => reserve.id}, method: :delete %>
+
+   </div>
  </div>
+ <% end %>
+
+ <% end %>
+</div>

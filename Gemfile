@@ -5,6 +5,7 @@
   gem 'pg', '~> 0.17.1'
   gem 'thin', '~> 1.6.1'
   gem 'geocoder'
+  gem 'devise'
 
   # assets and views
   gem 'sass-rails', '~> 4.0.0'

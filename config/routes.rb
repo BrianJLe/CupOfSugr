@@ -1,8 +1,18 @@
 Reservester::Application.routes.draw do
 
-   resources :restaurants
-
-    root to: "restaurants#index"
+  get "categories/new"
+  get "categories/create"
+  get "categories/index"
+  get "categories/show"
+  get "categories/destroy"
+  get "categories/update"
+  match '/dashboard', to: 'users#dashboard', via: 'get'
+  devise_for :users
+  resources :restaurants do
+    resources :reservations
+  end
+  resources :reservations
+  root to: "restaurants#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
