@@ -4,6 +4,12 @@
       <legend>Add a new restaurant</legend>
 
       <%= form_for(@restaurant, multipart: true, :html => {class: 'form-horizontal'}) do |f| %>
+  <% Category.all.each do |category| %>
+    <%= check_box_tag "Category[category_ids][]", category.id %>
+    <%= category.name %><br/>
+  <% end %>
+  <br>
+
       <!-- Text input-->
       <div class="form-group">
         <label class="col-sm-2 control-label" for="textinput">Name</label>

@@ -28,6 +28,7 @@ end
     @restaurant.user_id = current_user.id
 
     if @restaurant.save
+      current_user.role = "owner"
       flash[:success] = "#{@restaurant.name} created"
       redirect_to @restaurant
     else

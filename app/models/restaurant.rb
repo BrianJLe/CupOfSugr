@@ -5,5 +5,7 @@
     after_validation :geocode 
     belongs_to :user
     has_many :reservations
+    has_one :category
+    has_many :stars
 
   end
