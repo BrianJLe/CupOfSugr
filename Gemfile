@@ -6,6 +6,8 @@
   gem 'thin', '~> 1.6.1'
   gem 'geocoder'
   gem 'devise'
+  gem "rmagick"
+  gem "carrierwave"
 
   # assets and views
   gem 'sass-rails', '~> 4.0.0'

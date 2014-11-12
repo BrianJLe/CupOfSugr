@@ -4,11 +4,11 @@
       <legend>Add a new restaurant</legend>
 
       <%= form_for(@restaurant, multipart: true, :html => {class: 'form-horizontal'}) do |f| %>
-  <% Category.all.each do |category| %>
-    <%= check_box_tag "Category[category_ids][]", category.id %>
-    <%= category.name %><br/>
-  <% end %>
-  <br>
+      <% Category.all.each do |category| %>
+      <%= check_box_tag "Category[category_ids][]", category.id %>
+      <%= category.name %><br/>
+      <% end %>
+      <br>
 
       <!-- Text input-->
       <div class="form-group">
@@ -39,13 +39,13 @@
           <%= f.text_field :address, :placeholder => "Street Address", :class => 'form-control' %>
         </div>
       </div>
-                <div class="form-group">
-            <label class="col-sm-2 control-label" for="textinput">City</label>
-            <div class="col-sm-4">
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="textinput">City</label>
+        <div class="col-sm-4">
           <%= f.text_field :city, :placeholder => "City Name", :class => 'form-control' %>
         </div>
-            <label class="col-sm-2 control-label" for="textinput">State</label>
-            <div class="col-sm-4">
+        <label class="col-sm-2 control-label" for="textinput">State</label>
+        <div class="col-sm-4">
           <%= f.text_field :state, :placeholder => "State", :class => 'form-control' %>
         </div>
       </div>

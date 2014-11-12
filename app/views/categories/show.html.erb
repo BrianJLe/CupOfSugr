@@ -1,2 +1,12 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
+<h1><%= @category.name %></h1>
+
+<h2> There's 
+  <%= pluralize(@restaurants.count, 'restaurant') %> in the <%= @category.name %> category. 
+</h2>
+
+<p>
+  <% @restaurants.each do |restaurant| %>
+  <%= link_to restaurant.name, restaurant_path(restaurant) %>
+  <br/> 
+  <% end %>
+</p>
