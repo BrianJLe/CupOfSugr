@@ -2,7 +2,9 @@
 <% @restaurants.each do |r| %>
 <div class="row">
 	<div class="col-md-4 col-md-offset-4">
-		<h1><%= r.name %></h1>
+		<h1>Name: <%= r.name %></h1>
+		<h1>Phone: <%= r.phone %></h1>
+		<h1>Stars: <%= r.stars.count %> </h1> 
 	</div>
 </div>
 <% end %>

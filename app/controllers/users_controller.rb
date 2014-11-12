@@ -11,11 +11,8 @@ class UsersController < ApplicationController
   		@restaurants = current_user.restaurants
   	end
 
-    def patron_dashboard
-      @user = current_user
-     # @restaurants = current_user.starred_restaurants
-    end
-
     def my_stars
      @user = current_user
+     @all_stars = @user.restaurants.starred_restaurants
+ end
 end
