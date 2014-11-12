@@ -15,4 +15,7 @@ class UsersController < ApplicationController
       @user = current_user
      # @restaurants = current_user.starred_restaurants
     end
+
+    def my_stars
+     @user = current_user
 end

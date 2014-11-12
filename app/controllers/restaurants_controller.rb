@@ -68,7 +68,6 @@ end
 def star
   type = params[:type]
   @restaurant = Restaurant.find(params[:id])
-Rails.logger.info("Test: #{current_user.starred_restaurants}")
   if type == "star" 
     current_user.starred_restaurants << @restaurant
     redirect_to :back, notice: 'You starred ' + @restaurant.name
