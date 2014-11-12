@@ -7,5 +7,6 @@
     has_many :reservations
     has_one :category
     has_many :stars
+    has_many :starred_by, through: :stars, source: :user
 
   end

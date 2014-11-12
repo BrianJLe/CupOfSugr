@@ -15,9 +15,17 @@
      <h2><%= link_to 'Home', root_path %>
        <%= link_to 'Edit', edit_restaurant_path %>
        <%= link_to 'Delete', @restaurant , method: :delete %><br>
+       <% if current_user %>
+       <%= @restaurant.stars.count %>
+        <% if @starred %>
+        <%= link_to "Unstar", star_restaurant_path(@restaurant, type: "unstar"), method: :put %>
+        <% else %>
+        <%= link_to "Star", star_restaurant_path(@restaurant, type: "star"), method: :put %>
+        <% end %>
+       <% end %>
+
      </h2>
    </div>
-
    <%= render partial: 'reservations/form', :locals => { reservation: Reservation.new(restaurant_id: @restaurant.id) } %>
    <% if current_user.owner? %>
    <% @current_reservations.each do |reserve| %>
