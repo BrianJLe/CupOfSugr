@@ -15,7 +15,6 @@
   gem 'coffee-rails', '~> 4.0.0'
   gem 'therubyracer', platforms: :ruby
   gem 'jquery-rails'
-  gem 'foundation-rails'
 
   group :test, :development do
     gem 'quiet_assets'

@@ -10,6 +10,7 @@ Reservester::Application.routes.draw do
     put :star, on: :member
   end
   resources :reservations
-  root to: "restaurants#index"
+  #root to: "restaurants#index"
+  root :to => 'root#root'
 
 end

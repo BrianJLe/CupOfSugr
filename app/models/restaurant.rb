@@ -8,5 +8,6 @@
     has_and_belongs_to_many :categories
     has_many :stars
     has_many :starred_by, through: :stars, source: :user
+    mount_uploader :image, ImageUploader
 
   end

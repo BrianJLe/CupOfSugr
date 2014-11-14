@@ -4,6 +4,7 @@
     <%= image_tag "http://maps.google.com/maps/api/staticmap?size=640x260&sensor=false&zoom=16&markers=#{@restaurant.latitude}%2C#{@restaurant.longitude}",
     class: "tab-content",
      id: "map" %><br/>
+     <%= image_tag restaurant.image_url(:thumb) if @restaurant.image? %>
 
      <h1><%= link_to 'Reserve', new_restaurant_reservation_path(@restaurant.id) %></h1>
      <h3>Name:</h3> <%= @restaurant.name %> <br>

@@ -1,20 +1,28 @@
     <div class="container">
+    <div class="row">
+      <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+        
+      <h1><b>Reserve</b>ster</h1>
 
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h1><b>Reserve</b>ster</h1>
-          
-          <ul class="list-unstyled">
-            <% if !@restaurants.nil? %>
-            <% @restaurants.each do |res| %>
-            <li><%= link_to res.name, res %></li>
-            <% end %>
-            <% end %>
-          </ul>
+      <% if !@restaurants.nil? %>
+      <% @restaurants.each do |res| %>
+      <div class="well">
+        <div class="media">
+          <a class="pull-left" href="#">
+            <img class="media-object" src="http://placekitten.com/150/150">
+          </a>
+          <div class="media-body">
+            <h4 class="media-heading">
+              <%= link_to res.name, res %></h4>
+               <p class="text-right"><%= res.address %></p>
+               <p>Description: <%= res.description %></p>
+          </div>
+          </div>
+          </div>
+          <% end %>
+          <% end %>
+
           <% if user_signed_in? %>
-                <h3><%= link_to 'Add new restaurant', new_restaurant_path %></h3>
-                <% end %>
-        </div>
-      </div>
-      <!-- /.row -->
-    </div>
+          <h3><%= link_to 'Add new restaurant', new_restaurant_path %></h3>
+          <% end %>
+        </div></div></div>
