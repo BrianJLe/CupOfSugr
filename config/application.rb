@@ -27,11 +27,14 @@ module Reservester
     end
 
     config.assets.paths << "#{Rails}/app/assets/fonts"
+    config.assets.initialize_on_precompile = false
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
+    config.assets.precompile += %w( .svg .eot .woff .ttf )
   end
 
   Reservester::Application.configure do
-  config.action_mailer.smtp_settings = {
-    :address   => "smtp.mandrillapp.com",
+    config.action_mailer.smtp_settings = {
+      :address   => "smtp.mandrillapp.com",
     :port      => 587, # ports 587 and 2525 are also supported with STARTTLS
     :enable_starttls_auto => true, # detects and uses STARTTLS
     :user_name => "brian.joe.le@gmail.com",
