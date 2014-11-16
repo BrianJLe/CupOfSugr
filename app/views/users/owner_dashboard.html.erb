@@ -1,10 +1,24 @@
-<h1> Your restaurants </h1>
-<% @restaurants.each do |r| %>
-<div class="row">
-	<div class="col-md-4 col-md-offset-4">
-		<h1>Name: <%= r.name %></h1>
-		<h1>Phone: <%= r.phone %></h1>
-		<h1>Stars: <%= r.stars.count %> </h1> 
-	</div>
-</div>
-<% end %>
+    <div class="container">
+    	<div class="row">
+    		<div class="[ col-xs-12 col-sm-offset-2 col-sm-6 ]">
+
+    			<h1><b>Your Restaurants</h1>
+
+    			<% @restaurants.each do |res| %>
+    			<div class="well">
+    				<div class="media">
+    					<a class="pull-left" href="#">
+    						<%= image_tag res.image_url(:small_avatar), :width => 100, :height => 100 %>
+    					</a>
+    					<div class="media-body">
+    						<h4 class="media-heading">
+    							<%= link_to res.name, res %></h4>
+    							<p>Description: <%= res.description %></p>
+    							<p class="text-right">Stars: <%= res.stars.count %></p>
+    						</div>
+    					</div>
+    				</div>
+    				<% end %>
+    			</div>
+    		</div>
+    	</div>

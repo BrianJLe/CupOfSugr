@@ -17,6 +17,10 @@ body {
     color: #fed136;
 }
 
+.text-primary2 {
+    color: #dee74a;
+}
+
 p {
     font-size: 14px;
     line-height: 1.75;
@@ -298,8 +302,8 @@ header .intro-text .intro-heading {
 
 @media(min-width:768px) {
     header .intro-text {
-        padding-top: 300px;
-        padding-bottom: 200px;
+        padding-top: 193px;
+        padding-bottom: 163px;
     }
 
     header .intro-text .intro-lead-in {
@@ -331,7 +335,7 @@ section h2.section-heading {
 }
 
 section h3.section-subheading {
-    margin-bottom: 75px;
+    margin-bottom: 41px;
     text-transform: none;
     font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 16px;
@@ -341,7 +345,7 @@ section h3.section-subheading {
 
 @media(min-width:768px) {
     section {
-        padding: 150px 0;
+        padding: 70px 0;
     }
 }
 

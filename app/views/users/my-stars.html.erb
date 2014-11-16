@@ -1,10 +1,12 @@
-<div class="container-fluid1">
-	<br>
-	<% if @all_stars %>
-<% @all_stars.each do |x| %>
-<%= debug x %>
-<% end %>
-<% else %>
-You don't have any current starred restaurants!
-<% end %>
-</div>
+    <div class="container">
+    	<div class="row">
+    		<br>
+    		<% if @all_stars %>
+    		<% @all_stars.each do |x| %>
+    		<%= debug x %>
+    		<% end %>
+    		<% else %>
+    		You don't have any current starred restaurants!
+    		<% end %>
+    	</div>
+    </div>
