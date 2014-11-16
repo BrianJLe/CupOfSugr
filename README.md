@@ -1,6 +1,5 @@
-Resrvstr
-Author: Brian Le
-
+#Resrvstr
+##Author: Brian Le
 Web application for reserving restaurants for Startup Institute Boston Fall Web Development cohort.
 
 Functionalities:
