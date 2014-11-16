@@ -1,17 +1,49 @@
-<h2>Log in</h2>
+<div class="container" id="container1">
+	<div class="row centered-form">
+		<div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title text-center">Log In</h3>
+				</div>
+				<div class="panel-body">
+					<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+					<div class="form-group">
+<%= f.label :email %><br />
+  <%= f.email_field :email, autofocus: true,:class => 'form-control input-sm' %>
+					</div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+					<div class="form-group">
+<%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "off", :class => 'form-control input-sm' %>
+					</div>
 
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
-
-  <% if devise_mapping.rememberable? -%>
+					<div class="form-group">
+<% if devise_mapping.rememberable? -%>
     <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
   <% end -%>
+					</div>
 
-  <div><%= f.submit "Log in" %></div>
-<% end %>
+					<div><%= f.submit "Log In", :class => 'btn btn-info btn-block' %></div>
 
-<%= render "devise/shared/links" %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<style>
+#container1 {
+	background-color: #fff;
+}
+
+.centered-form {
+	margin-top: 100px;
+	margin-bottom: 120px;
+}
+
+.centered-form .panel {
+	background: rgba(255, 255, 255, 0.8);
+	box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+}
+</style>
