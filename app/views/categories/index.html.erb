@@ -1,4 +1,21 @@
-<h1>Categories</h1>
-      <% Category.all.each do |category| %>
-      <%= link_to category.name, category_path(category) %></br>
-      <% end %>
+<div class="container">
+	<div class="row text-center">
+		<h2 id="details">Categories</h2>
+	</div><br>
+
+	<div class="col-md-3 col-center-block">
+		<ul class="list-group">
+			<% Category.all.each do |category| %>
+			<li class="list-group-item"><i class="fa fa fa-cutlery fa-lg">  </i>    &nbsp;<u><%= link_to category.name, category_path(category) %></u></li>
+			<% end %>
+		</ul>
+	</div> 
+</div>  
+<style>
+.col-center-block {
+    float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
