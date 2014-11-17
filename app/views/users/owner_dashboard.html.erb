@@ -1,24 +1,30 @@
     <div class="container">
     	<div class="row">
     		<div class="[ col-xs-12 col-sm-offset-2 col-sm-6 ]">
+                <br>
+                <br>
+                <% if !@restaurants.empty? %>
 
-    			<h1><b>Your Restaurants</h1>
+                <% @restaurants.each do |res| %>
+                <div class="well">
+                    <div class="media">
+                     <%= link_to image_tag(res.image_url(:small_avatar), :width => 100, :height => 100), res, :class => 'pull-left' %>
+                     <div class="media-body">
+                      <h4 class="media-heading">
+                         <%= link_to res.name, res %></h4>
+                         <p>Description: <%= res.description %></p>
+                         <p class="text-right">Stars: <%= res.stars.count %></p>
+                     </div>
+                 </div>
+             </div>
+             <% end %>
 
-    			<% @restaurants.each do |res| %>
-    			<div class="well">
-    				<div class="media">
-    					<a class="pull-left" href="#">
-    						<%= image_tag res.image_url(:small_avatar), :width => 100, :height => 100 %>
-    					</a>
-    					<div class="media-body">
-    						<h4 class="media-heading">
-    							<%= link_to res.name, res %></h4>
-    							<p>Description: <%= res.description %></p>
-    							<p class="text-right">Stars: <%= res.stars.count %></p>
-    						</div>
-    					</div>
-    				</div>
-    				<% end %>
-    			</div>
-    		</div>
-    	</div>
+             <% else %>
+             You don't have any restaurants yet!
+             <% end %>
+
+             <h3><%= link_to 'Add new restaurant', new_restaurant_path, :class => 'btn btn-warning btn-large' %></h3>
+
+         </div>
+     </div>
+ </div>

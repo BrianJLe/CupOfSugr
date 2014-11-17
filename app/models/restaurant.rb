@@ -10,4 +10,7 @@
     has_many :starred_by, through: :stars, source: :user
     mount_uploader :image, ImageUploader
 
-  end
+    validates :phone, format: { with: /\d{3}-\d{3}-\d{4}/, message: "bad format" }
+    validates_format_of :name, :with => /\A[a-z0-9_-]+\Z/,
+:message => "can only contain letters and numbers.", :maximum => '30'
+end

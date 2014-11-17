@@ -1,43 +1,64 @@
-<div class="row">
-  <div class="col-md-4 col-md-offset-4">
-    <br><br>
+<div class="container">
+
+  <!-- Portfolio Item Heading -->
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header"><%= @restaurant.name %>
+        <small><%= @restaurant.address %>, <%= @restaurant.city %>, <%= @restaurant.state %></small>
+        <br>
+      </h1>
+    </div>
+  </div>
+  <!-- /.row -->
+
+  <!-- Portfolio Item Row -->
+  <div class="row">
+
+    <div class="col-md-8">
+      <% if @restaurant.image_url.nil? %>
+      <%= image_tag @restaurant.image_url(:thumb), :class => 'img-responsive' %>
+      <% else %>
+      <%= image_tag "/assets/notavail.png", :class => 'img-responsive', :width => 700, :height => 400 %>
+      <% end %>
+    </div>
+
+    <div class="col-md-4">
+      <h3>Description</h3>
+      <p><%= @restaurant.description %></p>
+      <% if current_user %>
+      <% if @starred %>
+      <%= link_to "Unstar", star_restaurant_path(@restaurant, type: "unstar"), method: :put, :class => 'btn btn-warning fa fa-star-o' %>
+      <% else %>
+      <%= link_to "Star", star_restaurant_path(@restaurant, type: "star"), method: :put, :class => 'btn btn-warning fa fa-star' %>
+      <% end %>
+      <% end %>
+      <h4>Contact:</h4> <%= @restaurant.phone %>
+    </div>
+<center>
     <%= image_tag "http://maps.google.com/maps/api/staticmap?size=640x260&sensor=false&zoom=16&markers=#{@restaurant.latitude}%2C#{@restaurant.longitude}",
     class: "tab-content",
-     id: "map" %><br/>
-     <%= image_tag restaurant.image_url(:thumb) if @restaurant.image? %>
+     id: "map" %><br/></center>
+<br><br>
+     <%= render partial: 'reservations/form', :locals => { reservation: Reservation.new(restaurant_id: @restaurant.id) } %>
+     <% if current_user.owner? %>
 
-     <h1><%= link_to 'Reserve', new_restaurant_reservation_path(@restaurant.id) %></h1>
-     <h3>Name:</h3> <%= @restaurant.name %> <br>
-     <h3>Description:</h3> <%= @restaurant.description %> <br>
-     <h3>Address:</h3> <%= @restaurant.address %><br>
-     <h3>City:</h3> <%= @restaurant.city %><br>
-     <h3>State:</h3> <%= @restaurant.state %><br>
-     <h3>Phone:</h3> <%= @restaurant.phone %><br>
-     <h2><%= link_to 'Home', root_path %>
-       <%= link_to 'Edit', edit_restaurant_path %>
-       <%= link_to 'Delete', @restaurant , method: :delete %><br>
-       <% if current_user %>
-       <%= @restaurant.stars.count %>
-        <% if @starred %>
-        <%= link_to "Unstar", star_restaurant_path(@restaurant, type: "unstar"), method: :put %>
-        <% else %>
-        <%= link_to "Star", star_restaurant_path(@restaurant, type: "star"), method: :put %>
-        <% end %>
-       <% end %>
+     <h2><%= link_to 'Edit', edit_restaurant_path %>
+       <%= link_to 'Delete', @restaurant , method: :delete %></h2>
 
-     </h2>
-   </div>
-   <%= render partial: 'reservations/form', :locals => { reservation: Reservation.new(restaurant_id: @restaurant.id) } %>
-   <% if current_user.owner? %>
-   <% @current_reservations.each do |reserve| %>
-   <div class="row">
-    <div class="col-md-4 col-md-offset-4">
-     <h2><%= reserve.email %></h2>
-     <%= link_to 'Destroy', { :controller => "reservations", :action => 'destroy', :id => reserve.id}, method: :delete %>
+       <% @current_reservations.each do |reserve| %>
+       <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+         <h2><%= reserve.email %></h2>
+         <%= link_to 'Destroy', { :controller => "reservations", :action => 'destroy', :id => reserve.id}, method: :delete %>
+
+       </div>
+     </div>
+     <% end %>
+
+     <% end %>
 
    </div>
+   <!-- /.row -->
+
  </div>
- <% end %>
-
- <% end %>
-</div>
+ <!-- /.container -->
