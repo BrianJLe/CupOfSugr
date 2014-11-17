@@ -1,6 +1,9 @@
 #Resrvstr
-##Author: Brian Le
+####Author: Brian Le
+
 Web application for reserving restaurants for Startup Institute Boston Fall Web Development cohort.
+
+Written in Ruby 1.9.3, Rails 4.0.2
 
 Functionalities:
 
