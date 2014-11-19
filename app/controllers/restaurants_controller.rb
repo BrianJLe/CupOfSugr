@@ -5,6 +5,8 @@ class RestaurantsController < ApplicationController
   def show
     @current_reservations = Reservation.find_all_by_restaurant_id(@restaurant.id)
     cookies[:name] = @restaurant.name
+    @json = Restaurant.find(params[:id]).to_gmaps4rails
+    Rails.logger.info("Json: #{@json.inspect}")
     if current_user
      @starred = current_user.stars.exists?(:restaurant_id => @restaurant.id)
    end

@@ -9,6 +9,7 @@
   gem "rmagick"
   gem "carrierwave"
   gem "font-awesome-rails"
+  gem 'gmaps4rails'
 
   # assets and views
   gem 'sass-rails', '~> 4.0.0'
