@@ -6,6 +6,7 @@ Web application for reserving restaurants for Startup Institute Boston Fall Web 
 
 Written in Ruby 1.9.3, Rails 4.0.2
 
+
 Functionalities:
 
 - Log In / Sign Up
