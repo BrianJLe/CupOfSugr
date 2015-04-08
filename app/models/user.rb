@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_many :stars
   has_many :starred_restaurants, :through => :stars, :source => :restaurant
 
-  validates :password, format: { with: /\A[a-zA-Z]+\z/, message: "must have one capital and one number." }
+  validates :password, format: { with: /\A(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}\z/, message: "must have one capital and one number." }
 
   def owner?
   	isOwner = false

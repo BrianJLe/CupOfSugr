@@ -1,10 +1,7 @@
-class CreateCategorizations < ActiveRecord::Migration
+class CreateCategorization < ActiveRecord::Migration
   def change
-    create_table :categorizations do |t|
-      t.integer :restaurant_id
-      t.integer :category_id
-
-      t.timestamps
+    create_table :restaurants_categories, :id => false do |t|
+      t.references :restaurant, :category
     end
   end
 end

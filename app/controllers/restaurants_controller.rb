@@ -6,11 +6,9 @@ class RestaurantsController < ApplicationController
     @current_reservations = Reservation.find_all_by_restaurant_id(@restaurant.id)
     cookies[:name] = @restaurant.name
     @json = Restaurant.find(params[:id]).to_gmaps4rails
-    Rails.logger.info("Json: #{@json.inspect}")
     if current_user
      @starred = current_user.stars.exists?(:restaurant_id => @restaurant.id)
    end
-   Rails.logger.info("RESL: #{@current_reservations.inspect}")
    if @restaurant
     render :show
   else
@@ -29,7 +27,6 @@ def new
 end
 
 def create
-  Rails.logger.info("Test:#{params.inspect}")
   @restaurant = Restaurant.new(restaurant_params)
   @restaurant.user_id = current_user.id
 
@@ -84,7 +81,7 @@ end
 
 private
 def restaurant_params
-  params.require(:restaurant).permit(:name, :address, :phone, :description, :city, :state)
+  params.require(:restaurant).permit(:name, :address, :phone, :description, :city, :state, :image, :category_ids => [])
 end
 
 protected    

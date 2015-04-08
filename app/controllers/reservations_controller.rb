@@ -14,8 +14,8 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new(reservation_params)
-    Rails.logger.info("Reserve: #{@reservation.inspect}")
-          @restaurant = Restaurant.find_by_id(@reservation.restaurant_id)
+
+    @restaurant = Restaurant.find_by_id(@reservation.restaurant_id)
     if @reservation.save
       ReservationMailer.confirm_email(@restaurant.user).deliver
       flash[:success] = "#{@reservation.id} created"
@@ -28,9 +28,7 @@ class ReservationsController < ApplicationController
 
   def new
     @reservation = Reservation.new
-    Rails.logger.info("param: #{params.inspect}")
     @restaurant = Restaurant.find_by_id params[:restaurant_id]
-    Rails.logger.info("Res: #{@restaurant.inspect}")
   end
 
   def update
@@ -40,7 +38,7 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
-            @reservation = Reservation.find_by_id params[:id]
+    @reservation = Reservation.find_by_id params[:id]
     @reservation.destroy
     redirect_to root_path
   end
