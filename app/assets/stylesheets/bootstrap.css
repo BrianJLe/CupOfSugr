@@ -3841,8 +3841,10 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .container-fluid > .navbar-header,
   .container > .navbar-collapse,
   .container-fluid > .navbar-collapse {
-    margin-right: 0;
-    margin-left: 0;
+    float: left;
+    padding: 5px;
+    text-align: center;
+    width: 100%;
   }
 }
 .navbar-static-top {
@@ -3893,7 +3895,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 @media (min-width: 768px) {
   .navbar > .container .navbar-brand,
   .navbar > .container-fluid .navbar-brand {
-    margin-left: -15px;
+    /*margin-left: -15px; */
+    float: none;
   }
 }
 .navbar-toggle {

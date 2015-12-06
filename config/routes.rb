@@ -1,4 +1,4 @@
-Reservester::Application.routes.draw do
+CupOfSugr::Application.routes.draw do
 
   resources :categories
   match '/owner_dashboard', to: 'users#owner_dashboard', via: 'get', :as => :owner_dashboard

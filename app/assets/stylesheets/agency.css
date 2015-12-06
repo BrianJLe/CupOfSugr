@@ -269,7 +269,7 @@ header {
     text-align: center;
     color: #fff;
     background-attachment: scroll;
-    background-image: url(/assets/header.jpg);
+    background-image: url(/assets/header_items.jpg);
     background-position: center center;
     background-repeat: none;
     -webkit-background-size: cover;
@@ -302,7 +302,7 @@ header .intro-text .intro-heading {
 
 @media(min-width:768px) {
     header .intro-text {
-        padding-top: 193px;
+        padding-top: 100px;
         padding-bottom: 163px;
     }
 
@@ -634,6 +634,7 @@ section h3.section-subheading {
 .team-member {
     margin-bottom: 50px;
     text-align: center;
+    display: inline-block;
 }
 
 .team-member img {

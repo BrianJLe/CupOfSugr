@@ -10,6 +10,7 @@
   gem "carrierwave"
   gem "font-awesome-rails"
   gem 'gmaps4rails'
+  gem 'rename'
 
   # assets and views
   gem 'sass-rails', '~> 4.0.0'

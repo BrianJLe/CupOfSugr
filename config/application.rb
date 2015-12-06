@@ -6,7 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
-module Reservester
+module CupOfSugr
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -32,7 +32,7 @@ module Reservester
     config.assets.precompile += %w( .svg .eot .woff .ttf )
   end
 
-  Reservester::Application.configure do
+  CupOfSugr::Application.configure do
     config.action_mailer.smtp_settings = {
       :address   => "smtp.mandrillapp.com",
     :port      => 587, # ports 587 and 2525 are also supported with STARTTLS

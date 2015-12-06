@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Reservester::Application.load_tasks
+CupOfSugr::Application.load_tasks
